@@ -1,3 +1,6 @@
+# TODO
+Move to Wiki pages??
+
 # ms Registry configuration
 - In this release of the ESMO Gateway the microservices will be registered by manual configuration. 
 - Two ms registry config files are needed as described further below: AP config file and the Gateway Config file. 
