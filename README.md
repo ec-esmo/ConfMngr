@@ -1,5 +1,5 @@
 # TODO
-Move to Wiki pages??
+Move to Wiki pages.
 
 # ms Registry configuration
 - In this release of the ESMO Gateway the microservices will be registered by manual configuration. 
