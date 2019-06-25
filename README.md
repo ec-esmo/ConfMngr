@@ -1,26 +1,4 @@
-# TODO
-Move to Wiki pages.
 
-# ms Registry configuration
-- In this release of the ESMO Gateway the microservices will be registered by manual configuration. 
-- Two ms registry config files are needed as described further below: AP config file and the Gateway Config file. 
-- The AP config file interface will be made available to the ACM ms only, and will prode access via the APconf method call.
-- The  Gateway Config file interface is available to all ms, and will provide access via the GWconf method call.
-- The  Conf Mngr primary address will have to be configurable on each of the ms. 
-- SSL to ensure the server identity  
-- **HTTP Signatures** to authenticate the calling ms 
-- Each ms will provision their own public and private keys indside their ms. 
-
-## HTTP Signatures
-Signatures are used as a means to authenticate clients. Putting signatures in HTTP headers is a more robust solution compared to using client TLS certificates, which can be stripped away by intermediate proxies, load balancers, etc. before reaching the server. The solution is based on an [Internet Draft](https://tools.ietf.org/html/draft-cavage-http-signatures-10) (on its way to become an RFC) which is already being used a lot.
-
-Since ESMO will be communicating with EWP, we should follow the EWP guidelines for HTTP signatures as much as possible. The EWP documentation related to the topic can be found here:
-
-[Authenticating Servers with HTTP Signature](https://github.com/erasmus-without-paper/ewp-specs-sec-srvauth-httpsig)
-
-[Authenticating Clients with HTTP Signature](https://github.com/erasmus-without-paper/ewp-specs-sec-cliauth-httpsig)
-
-The implementation we will be using is based on [Tomitribe's library](https://github.com/tomitribe/http-signatures-java), where the version 1.1 includes our code for verification of signatures.
 
 # ConfManager
 **Configuration files**:
@@ -61,7 +39,7 @@ The following versions are available:
 
 ```
 ConfManager:
-      image: mvjatos/cm:0.0.6 
+      image: mvjatos/cm:1.0.0 
       environment:
             - KEYSTORE_PATH=/resources/testKeys/keystore.jks
             - KEY_PASS=selfsignedpass
@@ -69,7 +47,36 @@ ConfManager:
             - HTTPSIG_CERT_ALIAS=1
             - SIGNING_SECRET=QjG+wP1CbAH2z4PWlWIDkxP4oRlgK2vos5/jXFfeBw8=
             - ASYNC_SIGNATURE=true
+            - SSL_KEYSTORE_PATH=/resources/keystoreatos.jks
+            - SSL_STORE_PASS=AtosCert1
+            - SSL_KEY_PASS=AtosCert1
+            - SSL_CERT_ALIAS=atoscert
         volumes:
             - /ESMO/CM/resources:/resources
         ports:
-            - 8080:8080
+            - 8083:8083
+```
+
+# TODO
+Move to Wiki pages.
+
+# ms Registry configuration
+- In this release of the ESMO Gateway the microservices will be registered by manual configuration. 
+- Two ms registry config files are needed as described further below: AP config file and the Gateway Config file. 
+- The AP config file interface will be made available to the ACM ms only, and will prode access via the APconf method call.
+- The  Gateway Config file interface is available to all ms, and will provide access via the GWconf method call.
+- The  Conf Mngr primary address will have to be configurable on each of the ms. 
+- SSL to ensure the server identity  
+- **HTTP Signatures** to authenticate the calling ms 
+- Each ms will provision their own public and private keys indside their ms. 
+
+## HTTP Signatures
+Signatures are used as a means to authenticate clients. Putting signatures in HTTP headers is a more robust solution compared to using client TLS certificates, which can be stripped away by intermediate proxies, load balancers, etc. before reaching the server. The solution is based on an [Internet Draft](https://tools.ietf.org/html/draft-cavage-http-signatures-10) (on its way to become an RFC) which is already being used a lot.
+
+Since ESMO will be communicating with EWP, we should follow the EWP guidelines for HTTP signatures as much as possible. The EWP documentation related to the topic can be found here:
+
+[Authenticating Servers with HTTP Signature](https://github.com/erasmus-without-paper/ewp-specs-sec-srvauth-httpsig)
+
+[Authenticating Clients with HTTP Signature](https://github.com/erasmus-without-paper/ewp-specs-sec-cliauth-httpsig)
+
+The implementation we will be using is based on [Tomitribe's library](https://github.com/tomitribe/http-signatures-java), where the version 1.1 includes our code for verification of signatures.
