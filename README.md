@@ -23,17 +23,19 @@ etc.
 ```
 
 
-**Docker container:** mvjatos/cm (check for the current version)
+**Docker container** 
+
+Find the related image at DockerHub: mvjatos/cm (check for the current version)
 
 The following versions are available:
 
 |**Tag**|**Description**|
 | ------ | ------ |
-| **0.0.6**| CM-CM enhanced. |
-| 0.0.6ssl| Pending to be published at DockerHub. (*)|
+| 0.0.6| CM-CM enhanced. |
+| **1.0.0**| ssl |
 
 
-(*) *To update the docker-compose file too.*
+
 
 **docker-compose example**:
 
