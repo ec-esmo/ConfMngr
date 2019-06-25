@@ -25,7 +25,7 @@ etc.
 
 **Docker container** 
 
-Find the related image at DockerHub: mvjatos/cm (check for the current version)
+Find the related image at DockerHub: *mvjatos/cm* (check for the current version)
 
 The following versions are available:
 
