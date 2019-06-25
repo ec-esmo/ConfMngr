@@ -31,8 +31,7 @@ The following versions are available:
 
 |**Tag**|**Description**|
 | ------ | ------ |
-| 0.0.6| CM-CM enhanced. |
-| **1.0.0**| ssl |
+| **1.0.0**| Published in GitHub |
 
 
 
