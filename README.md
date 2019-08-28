@@ -32,6 +32,7 @@ The following versions are available:
 |**Tag**|**Description**|
 | ------ | ------ |
 | **1.0.0**| Published in GitHub |
+| **1.0.1**| Headers updated |
 
 
 
