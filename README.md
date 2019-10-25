@@ -63,9 +63,9 @@ ConfManager:
 Move to Wiki pages.
 
 # ms Registry configuration
-- In this release of the ESMO Gateway the microservices will be registered by manual configuration. 
-- Two ms registry config files are needed as described further below: AP config file and the Gateway Config file. 
-- The AP config file interface will be made available to the ACM ms only, and will prode access via the APconf method call.
+- In this release of the ESMO Gateway the microservices will be registered simulating the **[EWP Registry](https://dev-registry.erasmuswithoutpaper.eu/catalogue-v1.xml)** . Our EWP Registry instance is held in [UNIT Norway](https://docker-demo.fsat.no/ewp/catalogue-v1.xml). Notice the ESMO GW entries there.
+- Two ms registry config files are automatically generated with the information retrieved from the Registry: AP config file and the Gateway Config file. 
+- The AP config file interface will be made available to the ACM ms only, and will provide access via the APconf method call.
 - The  Gateway Config file interface is available to all ms, and will provide access via the GWconf method call.
 - The  Conf Mngr primary address will have to be configurable on each of the ms. 
 - SSL to ensure the server identity  
